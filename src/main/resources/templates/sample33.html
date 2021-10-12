@@ -23,4 +23,16 @@
   </div>
 </body>
 
+<div>
+
+<form th:action="@{/sample3/step6}" method="post">
+  <input type="number" name="hiku1" />-
+  <input type="number" name="hiku2" />
+  <input type="submit" value="計算"><input type="reset" value="リセット">
+</form>
+<div th:if="${hikukekka}">
+  結果：[[${hikukekka}]]
+</div>
+</div>
+
 </html>
