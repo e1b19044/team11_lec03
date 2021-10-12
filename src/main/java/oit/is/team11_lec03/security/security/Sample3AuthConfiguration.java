@@ -19,10 +19,8 @@ public class Sample3AuthConfiguration extends WebSecurityConfigurerAdapter {
   @Override
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-
     auth.inMemoryAuthentication().withUser("note").password(passwordEncoder().encode("pen")).roles("USER");
 
-    
     auth.inMemoryAuthentication().withUser("apple").password(passwordEncoder().encode("ringo")).roles("ADMIN");
   }
 
@@ -36,11 +34,11 @@ public class Sample3AuthConfiguration extends WebSecurityConfigurerAdapter {
    */
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-   
+
     http.formLogin();
- 
-    http.authorizeRequests().antMatchers("/").authenticated();
-  
+
+    http.authorizeRequests().antMatchers("/sample3/*").authenticated();
+
     http.logout().logoutSuccessUrl("/");
   }
 }
